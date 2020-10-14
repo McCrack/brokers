@@ -1,0 +1,54 @@
+description = "Category"
+
+[blogPosts]
+pageNumber = "{{ :page }}"
+postsPerPage = 12
+noPostsMessage = "Is Empty"
+sortOrder = "published_at desc"
+categoryPage = "brokers-to-avoid"
+postPage = "broker-to-avoid"
+
+[blogPost]
+slug = "{{ :slug }}"
+categoryPage = "brokers-to-avoid"
+
+[staticMenu]
+code = "main"
+
+[staticBreadcrumbs]
+==
+<!DOCTYPE html>
+<html>
+<head>
+    {% partial 'head' %}
+</head>
+<body>
+
+<!-- Header -->
+<header id="layout-header">
+    {% partial 'header' %}
+</header>
+
+<!-- Content -->
+<main>
+    {% component 'staticBreadcrumbs'%}
+
+    {% page %}
+</main>
+
+<!-- Footer -->
+<footer>
+    {% partial 'footer' %}
+</footer>
+
+<!-- Scripts -->
+<!--
+<script src="{{ 'assets/vendor/jquery.js'|theme }}"></script>
+<script src="{{ 'assets/vendor/bootstrap.js'|theme }}"></script>
+-->
+<script src="{{ 'assets/javascript/app.js'|theme }}"></script>
+{% framework extras %}
+{% scripts %}
+
+</body>
+</html>

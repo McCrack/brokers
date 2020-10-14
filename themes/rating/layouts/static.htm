@@ -1,0 +1,48 @@
+description = "Static Layout"
+
+[staticPage]
+useContent = 1
+default = 0
+
+[staticMenu]
+code = "main"
+
+[staticBreadcrumbs]
+==
+<!DOCTYPE html>
+<html>
+<head>
+    {% partial 'head' %}
+</head>
+<body>
+
+<!-- Header -->
+<header id="layout-header">
+    {% partial 'header' %}
+</header>
+
+<!-- Content -->
+<main>
+    {% component 'staticBreadcrumbs'%}
+
+    <h1>Static Layout</h1>
+    <hr>
+    {% page %}
+</main>
+
+<!-- Footer -->
+<footer>
+    {% partial 'footer' %}
+</footer>
+
+<!-- Scripts -->
+<!--
+<script src="{{ 'assets/vendor/jquery.js'|theme }}"></script>
+<script src="{{ 'assets/vendor/bootstrap.js'|theme }}"></script>
+-->
+<script src="{{ 'assets/javascript/app.js'|theme }}"></script>
+{% framework extras %}
+{% scripts %}
+
+</body>
+</html>

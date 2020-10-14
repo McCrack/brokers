@@ -1,0 +1,20 @@
+==
+function onStart()
+{
+    $this['backendUrl'] = Backend::url('/');
+}
+==
+<!-- Nav -->
+<nav class="sticky top" role="navigation">
+    <div class="container flex-between-center">
+        <a href="{{ 'home'|page }}"><img src="" alt="LOGO"></a>
+        <div>
+            <ul class="nav">
+                <li class="{% if this.page.id == 'home' %}active{% endif %}"><a href="{{ 'home'|page }}">Home</a></li>
+                <li class="{% if this.page.id == 'recover-your-funds' %}active{% endif %}"><a href="{{ 'recover-your-funds'|page }}">Recover Your Funds</a></li>
+                <li class="{% if this.page.id == 'report-scam' %}active{% endif %}"><a href="{{ 'report-scam'|page }}">Report a Scam</a></li>
+                <li class="{% if this.page.id == 'education' %}active{% endif %}"><a href="{{ 'education'|page }}">Education</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>

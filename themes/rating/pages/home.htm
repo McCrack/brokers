@@ -1,0 +1,25 @@
+title = "Home Page"
+url = "/"
+layout = "default"
+==
+
+{% partial 'cover' %}
+
+<h1>Home</h1>
+
+<div class="container">
+    {% partial 'topfeed' %}
+</div>
+
+<div class="container">
+    <h1>Home Page</h1>
+    {% partial 'feed' %}
+</div>
+
+<div class="silver-bg">
+    {% partial 'callback' %}
+</div>
+
+<div class="container">
+    {% partial 'content' %}
+</div>

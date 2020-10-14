@@ -1,0 +1,13 @@
+==
+function onStart()
+{
+    $this['backendUrl'] = Backend::url('/');
+}
+==
+<!-- Nav -->
+<nav class="container flex-between-center" role="navigation">
+    <a href="{{ 'home'|page }}"><img src="" alt="LOGO"></a>
+    <div>
+        {% component 'staticMenu'%}
+    </div>
+</nav>

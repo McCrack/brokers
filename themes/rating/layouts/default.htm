@@ -1,0 +1,66 @@
+description = "Default layout"
+
+[staticPage]
+useContent = 1
+default = 1
+childLayout = "Default layout"
+
+[staticMenu]
+code = "main"
+
+[blogPosts]
+pageNumber = "{{ :page }}"
+postsPerPage = 18
+noPostsMessage = "Is Empty"
+sortOrder = "published_at desc"
+categoryPage = 404
+postPage = "broker-to-avoid"
+==
+<!DOCTYPE html>
+<html>
+    <head>
+        {% partial 'head' %}
+    </head>
+    <body>
+
+        <!-- Header -->
+        <header id="layout-header" class="sticky top">
+            {% partial 'header' %}
+        </header>
+
+        {% partial 'cover' %}
+
+        <main>
+            <div class="container">
+                {% partial 'topfeed' %}
+            </div>
+
+            <div class="container">
+                {% partial 'feed' %}
+            </div>
+
+            <div class="silver-bg">
+                {% partial 'callback' %}
+            </div>
+
+            <div class="container">
+                {% partial 'content' %}
+            </div>
+        </main>
+
+        <!-- Footer -->
+        <footer>
+            {% partial 'footer' %}
+        </footer>
+
+        <!-- Scripts -->
+        <!--
+        <script src="{{ 'assets/vendor/jquery.js'|theme }}"></script>
+        <script src="{{ 'assets/vendor/bootstrap.js'|theme }}"></script>
+        -->
+        <script src="{{ 'assets/javascript/app.js'|theme }}"></script>
+        {% framework extras %}
+        {% scripts %}
+
+    </body>
+</html>
