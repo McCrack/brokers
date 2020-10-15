@@ -1,36 +1,44 @@
 items:
     -
         title: Home
-        type: url
-        url: /
+        nesting: 0
+        type: static-page
         code: ''
+        reference: index
+        replace: 0
         viewBag:
             isHidden: '0'
             cssClass: ''
             isExternal: '0'
     -
         title: 'Recover Your Funds'
-        type: url
-        url: /recover-your-funds
+        nesting: 0
+        type: static-page
         code: ''
+        reference: recovery-your-funds
+        replace: 0
         viewBag:
             isHidden: '0'
             cssClass: ''
             isExternal: '0'
     -
-        title: 'Новый пунктReport a Scam'
-        type: url
-        url: /report-scam
+        title: 'Report a Scam'
+        nesting: 0
+        type: static-page
         code: ''
+        reference: report-scam
+        replace: 0
         viewBag:
             isHidden: '0'
             cssClass: ''
             isExternal: '0'
     -
         title: Education
-        type: url
-        url: /education
+        nesting: 0
+        type: static-page
         code: ''
+        reference: education
+        replace: 0
         viewBag:
             isHidden: '0'
             cssClass: ''

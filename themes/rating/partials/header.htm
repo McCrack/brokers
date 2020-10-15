@@ -1,3 +1,6 @@
+[staticMenu]
+code = "main"
+
 ==
 function onStart()
 {
@@ -6,8 +9,8 @@ function onStart()
 ==
 <!-- Nav -->
 <nav class="container flex-between-center" role="navigation">
-    <a href="{{ 'home'|page }}"><img src="" alt="LOGO"></a>
+    <a href="/"><img src="" alt="LOGO"></a>
     <div>
-        {% component 'staticMenu'%}
+        {% component 'staticMenu' %}
     </div>
 </nav>
