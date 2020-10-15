@@ -4,8 +4,6 @@ description = "Static Layout"
 useContent = 1
 default = 0
 
-[staticMenu]
-code = "main"
 
 [staticBreadcrumbs]
 ==
@@ -23,10 +21,12 @@ code = "main"
 
 <!-- Content -->
 <main>
-    {% component 'staticBreadcrumbs'%}
+    {% component 'staticBreadcrumbs' %}
+    <div class="container">
+        {% partial 'avoidfeed' %}
+        {% partial 'topfeed' %}
+    </div>
 
-    <h1>Static Layout</h1>
-    <hr>
     {% page %}
 </main>
 

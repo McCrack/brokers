@@ -1,12 +1,9 @@
-description = "Default layout"
+description = "Home Page layout"
 
 [staticPage]
 useContent = 1
 default = 1
 childLayout = "Default layout"
-
-[staticMenu]
-code = "main"
 
 [blogPosts]
 pageNumber = "{{ :page }}"
@@ -31,14 +28,18 @@ postPage = "broker-to-avoid"
         {% partial 'cover' %}
 
         <main>
+            <h1>Default Layout</h1>
+
             <div class="container">
+                {% partial 'avoidfeed' %}
                 {% partial 'topfeed' %}
             </div>
-
+            <hr>
             <div class="container">
+                <h2>FEED</h2>
                 {% partial 'feed' %}
             </div>
-
+            <hr>
             <div class="silver-bg">
                 {% partial 'callback' %}
             </div>
@@ -46,6 +47,7 @@ postPage = "broker-to-avoid"
             <div class="container">
                 {% partial 'content' %}
             </div>
+
         </main>
 
         <!-- Footer -->

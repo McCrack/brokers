@@ -1,22 +1,6 @@
-description = "Category"
-
-[blogPosts]
-pageNumber = "{{ :page }}"
-postsPerPage = 12
-noPostsMessage = "Is Empty"
-sortOrder = "published_at desc"
-categoryPage = "brokers-to-avoid"
-postPage = "broker-to-avoid"
-
-[blogPost]
-slug = "{{ :slug }}"
-categoryPage = "brokers-to-avoid"
-
-[staticMenu]
-code = "main"
-
-[staticBreadcrumbs]
+description = "Post page Layout"
 ==
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -31,7 +15,10 @@ code = "main"
 
 <!-- Content -->
 <main>
-    {% component 'staticBreadcrumbs'%}
+    <div class="container">
+        {% partial 'avoidfeed' %}
+        {% partial 'topfeed' %}
+    </div>
 
     {% page %}
 </main>
