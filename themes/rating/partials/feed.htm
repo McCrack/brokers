@@ -2,24 +2,23 @@
 [blogPosts]
 description = "Main feed"
 pageNumber = "{{ :page }}"
-postsPerPage = 18
 noPostsMessage = "Is Empty"
 sortOrder = "published_at desc"
 exceptCategories = "top-brokers"
 ==
 {% set posts = blogPosts.posts %}
 
-<div class="feed black-list grid">
-    {% for post in posts %}
-    <a href="{{ post.categories[0].slug }}/{{ post.slug }}" class="snippet">
-        <div class="preview">
-            <img src="{{ (post.featured_images|first).path }}" alt="">
-        </div>
-        <p class="title font-bold font-16">{{ post.title }}</p>
-        <div class="flex-between-center">
-            <span class="post-date">{{ post.published_at|date('d M, Y') }}</span>
-            <span class="detail">READ →</span>
-        </div>
-    </a>
-    {% endfor %}
-</div>
+
+{% for post in posts %}
+<a href="{{ post.categories[0].slug }}/{{ post.slug }}" class="snippet">
+    <div class="preview">
+        <img src="{{ (post.featured_images|first).path }}" alt="">
+    </div>
+    <p class="title font-bold font-16">{{ post.title }}</p>
+    <p class="flex-between-center">
+        <span class="post-date">{{ post.published_at|date('d M, Y') }}</span>
+        <span class="detail">READ →</span>
+    </p>
+</a>
+{% endfor %}
+

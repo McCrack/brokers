@@ -1,39 +1,49 @@
 <div id="wrap-comment-form">
-    <div class="row" id="comment-form">
+    <div id="comment-form">
 
-        <h2 class="comment-reply-title">Add comment
+        <p class="font-medium font-20">Comments
             <small><a onclick="Comment.cancel()" style="display: none;" rel="nofollow" id="cancel-comment-reply-link"
                       title="Cancel reply">×</a>
             </small>
-        </h2>
+        </p>
         <form>
             <div id="comment_flash_message"></div>
+
+            <!-- Content Field -->
+            <div class="my-5">
+                <textarea id="comment-text"
+                          name="content"
+                          placeholder="Leave a comment ..."
+                          class="full-width resize-none"
+                          rows="10"></textarea>
+            </div>
+
             {% if(user == false) %}
                 <!-- Name Field -->
-                <div class="form-group">
-                    <input placeholder="Name" class="form-control" name="author" type="text">
+                <div class="my-5">
+                    <input name="author"
+                           placeholder="Name"
+                           class="full-width"
+                           type="text">
                 </div>
 
                 <!-- Email Field -->
-                <div class="form-group">
-                    <input placeholder="Email" class="form-control" name="email" type="text">
+                <div class="my-5">
+                    <input name="email"
+                           type="email"
+                           placeholder="E-Mail"
+                           class="full-width">
                 </div>
             {% endif %}
-            <!-- Content Field -->
-            <div class="form-group">
-                <textarea placeholder="Leave a comment ..." class="form-control" id="comment-text" name="content"
-                          cols="50" rows="10"></textarea>
-            </div>
 
             <input name="post_id" type="hidden" value="{{__SELF__.post_id}}">
 
-            {% if (__SELF__.settings.recaptcha_enabled) %}  
+            {% if (__SELF__.settings.recaptcha_enabled) %}
             <div class="g-recaptcha" data-sitekey="{{ __SELF__.settings.site_key }}"></div>
-            <br>
             {% endif %}
 
             <!-- Submit Field -->
-            <div class="form-group">
+            <div class="my-5 text-right">
                 <button type="submit" class="btn btn-primary" onclick="Comment.saveButton(event)">Send</button>
             </div>
         </form>
