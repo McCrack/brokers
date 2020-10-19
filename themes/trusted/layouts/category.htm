@@ -1,4 +1,8 @@
-description = "Post page Layout"
+description = "Category"
+
+[staticPage]
+useContent = 1
+default = 0
 ==
 
 <!DOCTYPE html>
@@ -13,6 +17,8 @@ description = "Post page Layout"
 
     <!-- Content -->
     <main>
+        <h1> - Category Layout</h1>
+
         <div class="container">
             {% partial 'avoidfeed' %}
             {% partial 'topfeed' %}
@@ -23,7 +29,7 @@ description = "Post page Layout"
 
     <!-- Footer -->
     {% partial 'footer' %}
-
+    
     <!-- Scripts -->
     <!--
     <script src="{{ 'assets/vendor/jquery.js'|theme }}"></script>

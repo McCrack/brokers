@@ -1,6 +1,32 @@
-<div id="footer">
-    <div class="container">
-        <hr />
+[staticMenu]
+code = "main"
+
+[staticMenu policies]
+code = "policies"
+
+[staticMenu categories]
+code = "categories"
+==
+<footer class="grey-bg">
+    <div class="container flex-between-start flex-wrap py-40 px-20">
+        <div>
+            <img src="" alt="LOGO">
+            {% component 'staticMenu' %}
+        </div>
+        <div>
+            <h3>CATEGORIES</h3>
+            {% component 'categories' %}
+        </div>
+        <div>
+            <h3>POLICIES</h3>
+            {% component 'policies' %}
+        </div>
+        <div>
+            <h3>CONTACTS</h3>
+            <p>E-Mail: info@site.com</p>
+        </div>
     </div>
-    <div class="copyright text-center">Copyright &copy; {{ "now"|date("Y") }} Trusted Brokers</div>
-</div>
+    <div class="copyright text-center py-5 font-13 black-bg white-txt">
+        Copyright &copy; {{ "now"|date("Y") }} Rating Brokers
+    </div>
+</footer>

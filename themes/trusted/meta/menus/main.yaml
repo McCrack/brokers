@@ -1,0 +1,46 @@
+items:
+    -
+        title: Home
+        nesting: 0
+        type: static-page
+        code: ''
+        reference: index
+        replace: 0
+        viewBag:
+            isHidden: '0'
+            cssClass: ''
+            isExternal: '0'
+    -
+        title: 'Recover Your Funds'
+        nesting: 0
+        type: static-page
+        code: ''
+        reference: recovery-your-funds
+        replace: 0
+        viewBag:
+            isHidden: '0'
+            cssClass: ''
+            isExternal: '0'
+    -
+        title: 'Report a Scam'
+        nesting: 0
+        type: static-page
+        code: ''
+        reference: report-scam
+        replace: 0
+        viewBag:
+            isHidden: '0'
+            cssClass: ''
+            isExternal: '0'
+    -
+        title: Education
+        nesting: 0
+        type: static-page
+        code: ''
+        reference: education
+        replace: 0
+        viewBag:
+            isHidden: '0'
+            cssClass: ''
+            isExternal: '0'
+name: Main

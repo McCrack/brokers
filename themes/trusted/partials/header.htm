@@ -1,20 +1,19 @@
+[staticMenu]
+code = "main"
 ==
-function onStart()
-{
-    $this['backendUrl'] = Backend::url('/');
-}
-==
-<!-- Nav -->
-<nav class="sticky top" role="navigation">
-    <div class="container flex-between-center">
-        <a href="{{ 'home'|page }}"><img src="" alt="LOGO"></a>
-        <div>
-            <ul class="nav">
-                <li class="{% if this.page.id == 'home' %}active{% endif %}"><a href="{{ 'home'|page }}">Home</a></li>
-                <li class="{% if this.page.id == 'recover-your-funds' %}active{% endif %}"><a href="{{ 'recover-your-funds'|page }}">Recover Your Funds</a></li>
-                <li class="{% if this.page.id == 'report-scam' %}active{% endif %}"><a href="{{ 'report-scam'|page }}">Report a Scam</a></li>
-                <li class="{% if this.page.id == 'education' %}active{% endif %}"><a href="{{ 'education'|page }}">Education</a></li>
-            </ul>
+<header id="layout-header" class="header sticky top">
+    <!-- Nav -->
+    <nav class="container flex-between-center p-10" role="navigation">
+        <a href="/"><img src="" alt="LOGO"></a>
+
+        <div class="main-menu font-none">
+            <input id="menu-shower" type="checkbox" autocomplete="off" hidden>
+            <label class="hamburger inline-block cursor-pointer" for="menu-shower">
+                <span></span>
+                <span></span>
+            </label>
+            {% component 'staticMenu' %}
         </div>
-    </div>
-</nav>
+    </nav>
+</header>
+

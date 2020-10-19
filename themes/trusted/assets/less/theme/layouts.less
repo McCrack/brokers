@@ -19,22 +19,66 @@ img {
 input,
 textarea {
     padding: 8px 10px;
-    border-radius: 3px;
-    border: 1px solid #cccccc;
+    border: 1px solid #aaaaaa;
     box-sizing: border-box;
 }
-blockquote {
-    margin: 20px 0;
-    font-style: italic;
-    border-radius: 3px;
-    border-left: 4px solid @red;
-    padding: 10px 10px 10px 40px;
+main {
+    min-height: 70vh;
+}
+footer {
+
 }
 
 .container {
     max-width: 1340px;
 }
-.page-header {
+
+#comment-form {
+    max-width: 860px;
+    box-sizing: border-box;
+}
+header {
+    nav {
+        .main-menu {
+            ul {
+                margin: 0;
+                padding: 0;
+                font-size: 16px;
+                list-style-type: none;
+            }
+        }
+    }
+}
+@media (max-width: 644px) {
 
 }
-
+@media (min-width: 645px) {
+    header {
+        nav {
+            .main-menu {
+                ul {
+                    display: flex;
+                    align-items: center;
+                    list-style-type: none;
+                    li {
+                        margin: 0 1vw;
+                    }
+                }
+            }
+        }
+    }
+    .wrapper {
+        display: grid;
+        grid-gap: 20px;
+    }
+}
+@media (min-width: 645px) AND (max-width: 1024px) {
+    .wrapper {
+        grid-template-columns: auto 300px;
+    }
+}
+@media (min-width: 1025px) {
+    .wrapper {
+        grid-template-columns: auto 380px;
+    }
+}

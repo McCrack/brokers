@@ -12,36 +12,31 @@ default = 0
 </head>
 <body>
 
-<!-- Header -->
-<header id="layout-header">
+    <!-- Header -->
     {% partial 'header' %}
-</header>
 
-<!-- Content -->
-<main>
-    <h1> - Category Layout</h1>
+    <!-- Content -->
+    <main>
+        <h1> - Category Layout</h1>
 
-    <div class="container">
-        {% partial 'avoidfeed' %}
-        {% partial 'topfeed' %}
-    </div>
+        <div class="container">
+            {% partial 'avoidfeed' %}
+            {% partial 'topfeed' %}
+        </div>
 
-    {% page %}
-</main>
+        {% page %}
+    </main>
 
-<!-- Footer -->
-<footer>
+    <!-- Footer -->
     {% partial 'footer' %}
-</footer>
 
-<!-- Scripts -->
-<!--
-<script src="{{ 'assets/vendor/jquery.js'|theme }}"></script>
-<script src="{{ 'assets/vendor/bootstrap.js'|theme }}"></script>
--->
-<script src="{{ 'assets/javascript/app.js'|theme }}"></script>
-{% framework extras %}
-{% scripts %}
-
+    <!-- Scripts -->
+    <!--
+    <script src="{{ 'assets/vendor/jquery.js'|theme }}"></script>
+    <script src="{{ 'assets/vendor/bootstrap.js'|theme }}"></script>
+    -->
+    <script src="{{ 'assets/javascript/app.js'|theme }}"></script>
+    {% framework extras %}
+    {% scripts %}
 </body>
 </html>
