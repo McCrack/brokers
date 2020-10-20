@@ -1,8 +1,17 @@
 .primary-bg {
     background-color: @primary;
 }
+.danger-bg {
+    background-color: @danger;
+}
+.warning-bg {
+    background-color: @warning;
+}
 .dark-bg {
     background-color: @dark;
+}
+.pink-bg {
+    background-color: @pink;
 }
 
 
@@ -33,9 +42,52 @@
     height: 1.2rem;
 }
 
+.up-btn {
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+    transform: rotate(-90deg);
+    box-shadow: -8px 6px 6px -2px rgba(0,0,0, .4);
+}
+
+.breadcrumbs {
+    ul {
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        font-weight: bold;
+        padding: 5px 20px;
+        list-style-type: none;
+        li {
+            &:last-child {
+                color: @warning;
+                font-size: 22px;
+                pointer-events: none;
+            }
+            &:not(:last-child) {
+                color: @success;
+                max-width: 160px;
+                overflow: hidden;
+                white-space: nowrap;
+                text-overflow: ellipsis;
+                &::after {
+                    content: "❯";
+                    color: #cccccc;
+                    margin: 0 5px 0 3px;
+                }
+            }
+            &:hover {
+                color: @danger;
+            }
+        }
+    }
+}
+
 .hamburger + ul {
     transition: all .4s ease-in;
 }
+
+
 
 .sidebar {
     .snippet {

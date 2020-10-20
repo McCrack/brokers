@@ -1,24 +1,51 @@
 
 [blogPosts]
 description = "Main feed"
+postsPerPage = 1
 pageNumber = "{{ :page }}"
 noPostsMessage = "Is Empty"
 sortOrder = "published_at desc"
-exceptCategories = "top-brokers"
 ==
 {% set posts = blogPosts.posts %}
 
 
-{% for post in posts %}
-<a href="/{{ post.categories[0].slug }}/{{ post.slug }}" class="snippet">
-    <div class="preview">
-        <img src="{{ (post.featured_images|first).path }}" alt="">
-    </div>
-    <p class="title font-bold font-16">{{ post.title }}</p>
-    <p class="flex-between-center">
-        <span class="post-date">{{ post.published_at|date('d M, Y') }}</span>
-        <span class="detail">READ →</span>
-    </p>
-</a>
-{% endfor %}
 
+<div class="feed black-list grid">
+    {% for post in posts %}
+    <a href="/{{ post.categories[0].slug }}/{{ post.slug }}" class="snippet">
+        <div class="preview">
+            <img src="{{ (post.featured_images|first).path }}" alt="">
+        </div>
+        <p class="title font-bold font-16">{{ post.title }}</p>
+        <p class="flex-between-center">
+            <span class="post-date">{{ post.published_at|date('d M, Y') }}</span>
+            <span class="detail">READ →</span>
+        </p>
+    </a>
+{% endfor %}
+</div>
+{% if results.hasPages %}
+<ul class="pagination">
+    <li>
+        {% if results.currentPage > 1 %}
+        <a href="{{ results.previousPageUrl }}" rel="prev">«</a>
+        {% else %}
+        <span class="disabled">«</span>
+        {% endif %}
+    </li>
+
+    {% for page in range(1, results.lastPage) %}
+    <li>
+        <a href="{{ results.url(page) }}">{{ page }}</a>
+    </li>
+    {% endfor %}
+
+    <li>
+        {% if results.hasMorePages %}
+        <a href="{{ results.nextPageUrl }}" rel="next">»</a>
+        {% else %}
+        <span class="disabled">»</span>
+        {% endif %}
+    </li>
+</ul>
+{% endif %}

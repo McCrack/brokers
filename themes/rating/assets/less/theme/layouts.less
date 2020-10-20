@@ -2,7 +2,9 @@
  * Layouts
  * Styles specific to different page layouts.
  */
-
+:root {
+    scroll-behavior: smooth;
+}
 body {
     font-size: 15px;
     font-family: Roboto;
@@ -19,7 +21,7 @@ img {
 input,
 textarea {
     padding: 8px 10px;
-    border: 1px solid #aaaaaa;
+    border: 1px solid #bbbbbb;
     box-sizing: border-box;
 }
 main {
@@ -91,47 +93,112 @@ footer {
         }
     }
 }
-.top-feed {
-    nav {
-        grid-row-gap: 25px;
-        grid-column-gap: 10px;
-        grid-template-columns: repeat(3, 1fr);
-        a {
-            display:flex;
-            align-items: stretch;
-            position: relative;
-            &::before {
-                content: "";
-                width: 68px;
+.feed {
+    grid-gap: 16px;
+    grid-template-columns: repeat(auto-fit, minmax(280px, max-content));
+    .snippet {
+        color: @dark;
+        padding: 20px;
+        max-width: 400px;
+        background-color: white;
+        box-shadow: 8px 8px 18px -10px rgba(0,0,0, .3);
+        & > .preview {
+            width: 100%;
+            height: 200px;
+            overflow: hidden;
+            border-bottom: 1px solid #cccccc;
+            img {
+                width: 100%;
                 height: 100%;
-            }
-            & > img {
-                left: 0;
-                top: 50%;
-                padding: 20px;
-                transform: translateY(-50%);
-                width: 40px;
-                height: 40px;
-                position: absolute;
-                border-radius: 50%;
-                background-color: @danger;
-                border: 2px solid white;
-            }
-            & > div {
-                padding: 50px 30px 50px 50px;
-                transition: background-color .5s;
-                box-shadow: 10px 10px 10px -8px rgba(0,0,0, .2);
-            }
-            &:hover {
-                & > div {
-                    color: white;
-                    background-color: @primary;
-                }
-                & > img {
-                    background-color: @primary;
-                }
+                padding: 30px;
+                object-fit: contain;
+                box-sizing: border-box;
+                transform: scale(1.1);
+                transition: transform .4s;
             }
         }
+        span {
+            color: @warning;
+            border-top: 1px solid transparent;
+        }
+        &:hover {
+            color: @primary;
+            .preview > img {
+                transform: scale(.8);
+            }
+            span {
+                color: @primary;
+                font-weight: 500;
+                border-color: @warning;
+            }
+        }
+    }
+}
+
+.black-list {
+    .snippet {
+        border-top: 4px solid @danger;
+
+    }
+}
+.white-list {
+    .snippet {
+        border-top: 4px solid @primary;
+    }
+}
+.top-feed {
+    display: grid;
+    grid-row-gap: 25px;
+    grid-column-gap: 10px;
+    grid-template-columns: repeat(auto-fit, minmax(350px, max-content));
+    a {
+        display:flex;
+        align-items: stretch;
+        position: relative;
+        max-width: 480px;
+        &::before {
+            content: "";
+            min-width: 42px;
+            max-width: 42px;
+            height: 100%;
+        }
+        & > img {
+            left: 0;
+            top: 50%;
+            padding: 20px;
+            transform: translateY(-50%);
+            width: 40px;
+            height: 40px;
+            position: absolute;
+            border-radius: 50%;
+            background-color: @danger;
+            border: 2px solid white;
+        }
+        & > div {
+            padding: 50px 30px 50px 50px;
+            transition: background-color .5s;
+            box-shadow: 10px 10px 10px -8px rgba(0,0,0, .2);
+        }
+        &:hover {
+            & > div {
+                color: white;
+                background-color: @primary;
+            }
+            & > img {
+                background-color: @primary;
+            }
+        }
+    }
+}
+.seo-container {
+    align-items: center;
+    justify-content: space-around;
+    article {
+        max-width: 650px;
+    }
+    form {
+        padding: 2vw;
+        max-width: 400px;
     }
 }
 
@@ -182,8 +249,22 @@ footer {
         grid-template-columns: auto 300px;
     }
 }
+@media (max-width: 1024px) {
+    .seo-container {
+        form,
+        article {
+            padding: 30px;
+            max-width: 540px;
+            margin: 20px auto;
+        }
+
+    }
+}
 @media (min-width: 1025px) {
     .wrapper {
         grid-template-columns: auto 380px;
+    }
+    .seo-container {
+        display: flex;
     }
 }

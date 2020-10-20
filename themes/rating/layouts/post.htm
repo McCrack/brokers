@@ -13,14 +13,16 @@ description = "Post page Layout"
 
     <!-- Content -->
     <main>
-        <div class="container">
-            {% partial 'avoidfeed' %}
+        <nav class="container top-feed py-30">
             {% partial 'topfeed' %}
-        </div>
+            {% partial 'avoidfeed' %}
+        </nav>
 
         {% page %}
     </main>
-
+    <div class="mr-30 pb-20 sticky bottom float-right">
+        <button class="btn up-btn primary-bg white-txt border-none" onclick="window.scrollTo(0,0)">❯</button>
+    </div>
     <!-- Footer -->
     {% partial 'footer' %}
 

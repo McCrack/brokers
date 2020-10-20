@@ -25,27 +25,39 @@ postPage = "broker-to-avoid"
     {% partial 'cover' %}
 
     <main>
-        <div class="container top-feed">
+        <nav class="container top-feed py-30">
+            {% partial 'topfeed' %}
             {% partial 'avoidfeed' %}
             {% partial 'topfeed' %}
-        </div>
-
-        <div class="container">
-            <div class="feed grid">
-                {% partial 'feed' %}
+            {% partial 'avoidfeed' %}
+            {% partial 'topfeed' %}
+            {% partial 'avoidfeed' %}
+        </nav>
+        <div class="container p-20">
+            <h2 class="text-left font-36 font-medium">Brokers to avoid ❯</h2>
+            {% partial 'blacklist' %}
+            <div class="text-center py-40">
+                <a href="/brokers-to-avoid"
+                   class="btn danger-bg white-txt py-10 px-30 font-12 font-medium hover-underline hover-navy-bg">VIEW ALL</a>
             </div>
-        </div>
 
-        <div class="silver-bg">
-            <div class="container">
-                {% partial 'callback' %}
+            <h2 class="text-left font-36 font-medium">Regulated Brokers ❯</h2>
+            {% partial 'whitelist' %}
+            <div class="text-center py-40">
+                <a href="/regulated-brokers"
+                   class="btn primary-bg white-txt py-10 px-30 font-12 font-medium hover-underline hover-red-bg">VIEW ALL</a>
             </div>
+
         </div>
 
-        <div class="container content-container font-14">
-            <div class="max-w-860">{% page %}</div>
+        <div class="seo-container container py-40 my-30">
+            <article class="px-20">{% page %}</article>
+            {% partial 'feedback' %}
         </div>
     </main>
+    <div class="mr-30 pb-20 sticky bottom float-right">
+        <button class="btn up-btn primary-bg white-txt border-none" onclick="window.scrollTo(0,0)">❯</button>
+    </div>
 
     <!-- Footer -->
     {% partial 'footer' %}

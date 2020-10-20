@@ -17,16 +17,17 @@ default = 0
 
     <!-- Content -->
     <main>
-        <h1> - Category Layout</h1>
-
-        <div class="container">
+        <nav class="container top-feed py-30">
             {% partial 'avoidfeed' %}
             {% partial 'topfeed' %}
+        </nav>
+        <div class="container">
+            {% page %}
         </div>
-
-        {% page %}
     </main>
-
+    <div class="mr-30 pb-20 sticky bottom float-right">
+        <button class="btn up-btn primary-bg white-txt border-none" onclick="window.scrollTo(0,0)">❯</button>
+    </div>
     <!-- Footer -->
     {% partial 'footer' %}
 

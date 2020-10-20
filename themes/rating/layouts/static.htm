@@ -19,17 +19,24 @@ default = 0
 
     <!-- Content -->
     <main>
-        {% component 'staticBreadcrumbs' %}
-        <div class="container">
-            {% partial 'avoidfeed' %}
-            {% partial 'topfeed' %}
-        </div>
+        <nav class="container breadcrumbs">
+            {% component 'staticBreadcrumbs' %}
+        </nav>
 
-        <div class="container max-w-860 content-container font-14">
-            {% page %}
+        <nav class="container top-feed py-30">
+            {% partial 'topfeed' %}
+            {% partial 'avoidfeed' %}
+        </nav>
+
+        <div class="container">
+            <article class="content-container">
+                {% page %}
+            </article>
         </div>
     </main>
-
+    <div class="mr-30 pb-20 sticky bottom float-right">
+        <button class="btn up-btn primary-bg white-txt border-none" onclick="window.scrollTo(0,0)">❯</button>
+    </div>
     <!-- Footer -->
     {% partial 'footer' %}
 
