@@ -15,6 +15,9 @@
 }
 
 
+.primary-txt {
+    color: @primary;
+}
 .success-txt {
     color: @success;
 }
@@ -22,6 +25,29 @@
     color: @success-dark;
 }
 .danger-txt {
+    color: @danger;
+}
+.warning-txt {
+    color: @warning;
+}
+
+.hover-primary-bg:hover {
+    background-color: @primary;
+}
+.hover-success-bg:hover {
+    background-color: @success-dark;
+}
+.hover-danger-bg:hover {
+    background-color: @danger;
+}
+
+.hover-primary-txt:hover {
+    color: @primary;
+}
+.hover-success-txt:hover {
+    color: @success-dark;
+}
+.hover-danger-txt:hover {
     color: @danger;
 }
 
@@ -34,6 +60,10 @@
 }
 .shadow-y {
     box-shadow: 0 10px 16px -10px rgba(0,0,0, .4);
+}
+
+.logo {
+    height: 36px;
 }
 
 .separator {
@@ -54,14 +84,15 @@
     ul {
         display: flex;
         align-items: center;
+        font-weight: 500;
         justify-content: flex-start;
-        font-weight: bold;
         padding: 5px 20px;
         list-style-type: none;
         li {
             &:last-child {
                 color: @warning;
                 font-size: 22px;
+                font-weight: bold;
                 pointer-events: none;
             }
             &:not(:last-child) {
@@ -93,13 +124,21 @@
     .snippet {
         font-size: 13px;
         height: 68px;
-        padding: 5px 0;
+        padding: 8px 0;
         display: flex;
         flex-flow: column wrap;
         align-content: flex-start;
         justify-content: space-around;
+        color: @success;
         &:not(:last-child) {
-            border-bottom: 1px solid #cccccc;
+            border-bottom: 1px solid #bbbbbb;
+            box-shadow: 0 10px 10px -12px rgba(0,0,0, .4);
+        }
+        &:hover {
+            .title {
+                text-decoration: underline;
+                text-decoration-color: @success-dark;
+            }
         }
         .preview {
             width: 68px;
@@ -177,6 +216,24 @@
         }
         input:checked + hr {
             background-color: @danger;
+        }
+    }
+}
+
+.comments {
+    color: #444444;
+    padding: 20px;
+    .comment {
+        clear: both;
+        .comment-avatar {
+            display: none;
+        }
+        .comment-header {
+            padding: 10px 0;
+        }
+        .comment-footer {
+            padding: 10px 0;
+            color: @danger;
         }
     }
 }

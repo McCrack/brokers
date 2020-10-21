@@ -4,8 +4,9 @@ description = "Static Layout"
 useContent = 1
 default = 0
 
-
 [staticBreadcrumbs]
+
+[SeoStaticPage]
 ==
 <!DOCTYPE html>
 <html>
@@ -19,6 +20,9 @@ default = 0
 
     <!-- Content -->
     <main>
+        <!-- Banner -->
+        {% partial 'banner' image='assets/images/cover-1.jpg' %}
+
         <nav class="container breadcrumbs">
             {% component 'staticBreadcrumbs' %}
         </nav>
@@ -41,10 +45,7 @@ default = 0
     {% partial 'footer' %}
 
     <!-- Scripts -->
-    <!--
     <script src="{{ 'assets/vendor/jquery.js'|theme }}"></script>
-    <script src="{{ 'assets/vendor/bootstrap.js'|theme }}"></script>
-    -->
     <script src="{{ 'assets/javascript/app.js'|theme }}"></script>
     {% framework extras %}
     {% scripts %}

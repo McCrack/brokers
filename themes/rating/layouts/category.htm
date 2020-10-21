@@ -3,8 +3,10 @@ description = "Category"
 [staticPage]
 useContent = 1
 default = 0
-==
 
+[SeoBlogPost]
+post = "post"
+==
 <!DOCTYPE html>
 <html>
 <head>
@@ -17,13 +19,7 @@ default = 0
 
     <!-- Content -->
     <main>
-        <nav class="container top-feed py-30">
-            {% partial 'avoidfeed' %}
-            {% partial 'topfeed' %}
-        </nav>
-        <div class="container">
-            {% page %}
-        </div>
+        {% page %}
     </main>
     <div class="mr-30 pb-20 sticky bottom float-right">
         <button class="btn up-btn primary-bg white-txt border-none" onclick="window.scrollTo(0,0)">❯</button>
@@ -32,10 +28,7 @@ default = 0
     {% partial 'footer' %}
 
     <!-- Scripts -->
-    <!--
     <script src="{{ 'assets/vendor/jquery.js'|theme }}"></script>
-    <script src="{{ 'assets/vendor/bootstrap.js'|theme }}"></script>
-    -->
     <script src="{{ 'assets/javascript/app.js'|theme }}"></script>
     {% framework extras %}
     {% scripts %}

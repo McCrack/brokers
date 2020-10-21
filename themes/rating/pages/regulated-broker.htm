@@ -43,6 +43,23 @@ theme = "social_flat_rounded_rects_svg"
 
 [commentsPost]
 ==
+
+<!-- Banner -->
+{% partial 'banner' image='assets/images/cover-1.jpg' %}
+
+<nav class="container breadcrumbs">
+    <ul>
+        <li><a href="/">Home</a></li>
+        <li><a href="/regulated-brokers">Regulated Brokers</a></li>
+        <li>{{ post.title }}</li>
+    </ul>
+</nav>
+
+<nav class="container top-feed py-30">
+    {% partial 'topfeed' %}
+    {% partial 'avoidfeed' %}
+</nav>
+
 <div class="container">
     <div class="wrapper">
         {% partial 'content' %}

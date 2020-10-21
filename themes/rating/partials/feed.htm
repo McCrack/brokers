@@ -11,7 +11,7 @@ sortOrder = "published_at desc"
 
 
 <div class="feed black-list grid">
-    {% for post in posts %}
+{% for post in posts %}
     <a href="/{{ post.categories[0].slug }}/{{ post.slug }}" class="snippet">
         <div class="preview">
             <img src="{{ (post.featured_images|first).path }}" alt="">

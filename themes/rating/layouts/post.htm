@@ -1,4 +1,7 @@
 description = "Post page Layout"
+
+[SeoBlogPost]
+post = "post"
 ==
 
 <!DOCTYPE html>
@@ -13,11 +16,6 @@ description = "Post page Layout"
 
     <!-- Content -->
     <main>
-        <nav class="container top-feed py-30">
-            {% partial 'topfeed' %}
-            {% partial 'avoidfeed' %}
-        </nav>
-
         {% page %}
     </main>
     <div class="mr-30 pb-20 sticky bottom float-right">
@@ -27,10 +25,7 @@ description = "Post page Layout"
     {% partial 'footer' %}
 
     <!-- Scripts -->
-    <!--
     <script src="{{ 'assets/vendor/jquery.js'|theme }}"></script>
-    <script src="{{ 'assets/vendor/bootstrap.js'|theme }}"></script>
-    -->
     <script src="{{ 'assets/javascript/app.js'|theme }}"></script>
     {% framework extras %}
     {% scripts %}

@@ -2,6 +2,8 @@ title = "Broker to Avoid"
 url = "/brokers-to-avoid/:slug"
 layout = "post"
 is_hidden = 0
+robot_index = "index"
+robot_follow = "follow"
 
 [blogPost]
 slug = "{{ :slug }}"
@@ -41,8 +43,27 @@ order_email = 11
 theme = "social_flat_rounded_rects_svg"
 
 [commentsPost]
+
+[SeoBlogPost]
+post = "post"
 ==
-<div class="container">
+<!-- Banner -->
+{% partial 'banner' image='assets/images/cover-1.jpg' %}
+
+<nav class="container breadcrumbs">
+    <ul>
+        <li><a href="/">Home</a></li>
+        <li><a href="/brokers-to-avoid">Brokers to avoid</a></li>
+        <li>{{ post.title }}</li>
+    </ul>
+</nav>
+
+<nav class="container top-feed py-30">
+    {% partial 'topfeed' %}
+    {% partial 'avoidfeed' %}
+</nav>
+
+<div class="container py-40">
     <div class="wrapper">
         {% partial 'content' %}
         {% partial 'sidebar' %}
