@@ -1,12 +1,15 @@
 description = "Post page Layout"
 
-[SeoBlogPost]
-post = "post"
-==
+[SeoCmsPage]
 
+[searchForm]
+resultPage = "blog/search"
+categoryFilter = 0
+==
 <!DOCTYPE html>
 <html>
 <head>
+    {% component 'SeoCmsPage' %}
     {% partial 'head' %}
 </head>
 <body>
@@ -23,6 +26,8 @@ post = "post"
     </div>
     <!-- Footer -->
     {% partial 'footer' %}
+
+    {% partial 'search' %}
 
     <!-- Scripts -->
     <script src="{{ 'assets/vendor/jquery.js'|theme }}"></script>

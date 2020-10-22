@@ -2,8 +2,6 @@ description = "Content container"
 
 [viewBag]
 ==
-{% component 'blogPost' %}
-{% component 'SeoBlogPost' data=post %}
 
 <article class="content-container">
     <header>
@@ -11,7 +9,8 @@ description = "Content container"
         <h1>{{ post.title }}</h1>
     </header>
 
-    {{ post.content_html|raw }}
+    {% component 'blogPost' %}
+
     <div class="mt-30 p-10 flex-between-center border-top-light">
         <div class="flex-between-center">
             <span class="font-medium">{{ post.user.first_name }} {{ post.user.last_name }}</span>

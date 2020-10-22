@@ -1,0 +1,34 @@
+title = "Search"
+url = "/search/:search?/:page?"
+layout = "default"
+is_hidden = 0
+robot_index = "index"
+robot_follow = "follow"
+
+[searchResult]
+searchTerm = "{{ :search }}"
+pageNumber = "{{ :page }}"
+hightlight = 1
+postsPerPage = 12
+noPostsMessage = "No brokers found"
+sortOrder = "published_at desc"
+excludeCategories[] = 1
+excludeCategories[] = 2
+excludeCategories[] = 3
+categoryPage = "brokers-to-avoid"
+postPage = "broker-to-avoid"
+
+[searchForm]
+resultPage = "/search"
+categoryFilter = 0
+==
+<div class="container">
+    <div class="search">
+        <p class="uppercase font-30 white-txt font-light my-0">Search</p>
+        {% component 'searchForm' %}
+    </div>
+    <div class="search-result py-40">
+        <h2 class="success-txt">Search Result</h2>
+        <div class="white-txt">{% component 'searchResult' %}</div>
+    </div>
+</div>

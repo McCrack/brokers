@@ -7,10 +7,15 @@ default = 0
 [staticBreadcrumbs]
 
 [SeoStaticPage]
+
+[searchForm]
+resultPage = "blog/search"
+categoryFilter = 0
 ==
 <!DOCTYPE html>
 <html>
 <head>
+    {% component 'SeoStaticPage' %}
     {% partial 'head' %}
 </head>
 <body>
@@ -43,6 +48,8 @@ default = 0
     </div>
     <!-- Footer -->
     {% partial 'footer' %}
+
+    {% partial 'search' %}
 
     <!-- Scripts -->
     <script src="{{ 'assets/vendor/jquery.js'|theme }}"></script>

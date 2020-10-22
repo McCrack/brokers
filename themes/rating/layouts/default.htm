@@ -4,10 +4,15 @@ description = "Default Layout"
 code = "main"
 
 [SeoCmsPage]
+
+[searchForm]
+resultPage = "blog/search"
+categoryFilter = 0
 ==
 <!DOCTYPE html>
 <html>
 <head>
+    {% component 'SeoStaticPage' %}
     {% partial 'head' %}
 </head>
 <body>
@@ -36,6 +41,8 @@ code = "main"
 
     <!-- Footer -->
     {% partial 'footer' %}
+
+    {% partial 'search' %}
 
     <!-- Scripts -->
     <script src="{{ 'assets/vendor/jquery.js'|theme }}"></script>

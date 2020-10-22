@@ -13,12 +13,17 @@ sortOrder = "published_at desc"
 categoryPage = 404
 postPage = "broker-to-avoid"
 
-[SeoCmsPage]
+[SeoStaticPage]
+
+[searchForm]
+resultPage = "blog/search"
+categoryFilter = 0
 ==
 <!DOCTYPE html>
 <html>
 <head>
-        {% partial 'head' %}
+    {% component 'SeoStaticPage' %}
+    {% partial 'head' %}
 </head>
 <body>
     <!-- Header -->
@@ -28,10 +33,6 @@ postPage = "broker-to-avoid"
 
     <main>
         <nav class="container top-feed py-30">
-            {% partial 'topfeed' %}
-            {% partial 'avoidfeed' %}
-            {% partial 'topfeed' %}
-            {% partial 'avoidfeed' %}
             {% partial 'topfeed' %}
             {% partial 'avoidfeed' %}
         </nav>
@@ -64,8 +65,9 @@ postPage = "broker-to-avoid"
     <!-- Footer -->
     {% partial 'footer' %}
 
-    <!-- Scripts -->
+    {% partial 'search' %}
 
+    <!-- Scripts -->
     <script src="{{ 'assets/vendor/jquery.js'|theme }}"></script>
     <script src="{{ 'assets/javascript/app.js'|theme }}"></script>
     {% framework extras %}

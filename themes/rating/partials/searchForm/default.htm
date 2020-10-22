@@ -1,0 +1,17 @@
+<form action="/{{ __SELF__.resultPage|page }}" class="shadow-y">
+    <div class="field">
+        <input type="search"
+               name="search"
+               placeholder="..."
+               class="flex-grow">
+        {% if __SELF__.categoryFilter %}
+        <select name="cat[]" class="form-control">
+            {% for key,cat in __SELF__.categories %}
+            <option value="{{ key }}">{{ cat }}</option>
+            {% endfor %}
+        </select>
+        {% endif %}
+        <img src="{{ 'assets/images/search.png'|theme }}" alt="">
+    </div>
+    <button type="submit" class="font-bold hover-danger-bg">Find</button>
+</form>

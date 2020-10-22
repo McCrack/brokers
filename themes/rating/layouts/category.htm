@@ -4,8 +4,11 @@ description = "Category"
 useContent = 1
 default = 0
 
-[SeoBlogPost]
-post = "post"
+[SeoStaticPage]
+
+[searchForm]
+resultPage = "blog/search"
+categoryFilter = 0
 ==
 <!DOCTYPE html>
 <html>
@@ -26,6 +29,8 @@ post = "post"
     </div>
     <!-- Footer -->
     {% partial 'footer' %}
+
+    {% partial 'search' %}
 
     <!-- Scripts -->
     <script src="{{ 'assets/vendor/jquery.js'|theme }}"></script>
