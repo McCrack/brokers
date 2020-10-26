@@ -1,22 +1,9 @@
 title = "Search"
-url = "/search/:search?/:page?"
+url = "/search/:page?"
 layout = "default"
 is_hidden = 0
 robot_index = "index"
 robot_follow = "follow"
-
-[searchResult]
-searchTerm = "{{ :search }}"
-pageNumber = "{{ :page }}"
-hightlight = 1
-postsPerPage = 12
-noPostsMessage = "No brokers found"
-sortOrder = "published_at desc"
-excludeCategories[] = 1
-excludeCategories[] = 2
-excludeCategories[] = 3
-categoryPage = "brokers-to-avoid"
-postPage = "broker-to-avoid"
 
 [searchForm]
 resultPage = "/search"
@@ -30,5 +17,10 @@ categoryFilter = 0
     <div class="search-result py-40">
         <h2 class="success-txt">Search Result</h2>
         <div class="white-txt">{% component 'searchResult' %}</div>
+    </div>
+
+    <div class="container p-20">
+        {% partial 'blacklist' %}
+        {% partial 'whitelist' %}
     </div>
 </div>
