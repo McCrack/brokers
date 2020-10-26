@@ -18,6 +18,17 @@ postPage = "broker-to-avoid"
 [searchForm]
 resultPage = "/search"
 categoryFilter = 0
+
+[genericForm]
+messages_success = "Ваша форма была успешно отправлена!"
+messages_errors = "В вашей заявке содержатся ошибки."
+inline_errors = "disabled"
+sanitize_data = "disabled"
+anonymize_ip = "disabled"
+recaptcha_theme = "light"
+recaptcha_type = "image"
+recaptcha_size = "normal"
+emails_date_format = "Y-m-d"
 ==
 <!DOCTYPE html>
 <html>
@@ -55,7 +66,8 @@ categoryFilter = 0
 
         <div class="seo-container container py-40 my-30">
             <article class="px-20">{% page %}</article>
-            {% partial 'feedback' %}
+            {# partial 'feedback' #}
+            {% component 'genericForm' %}
         </div>
     </main>
     <div class="mr-30 pb-20 sticky bottom float-right">
@@ -70,6 +82,7 @@ categoryFilter = 0
     <!-- Scripts -->
     <script src="{{ 'assets/vendor/jquery.js'|theme }}"></script>
     <script src="{{ 'assets/javascript/app.js'|theme }}"></script>
+    {% framework %}
     {% framework extras %}
     {% scripts %}
 </body>
