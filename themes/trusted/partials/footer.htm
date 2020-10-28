@@ -7,26 +7,28 @@ code = "policies"
 [staticMenu categories]
 code = "categories"
 ==
-<footer class="grey-bg">
-    <div class="container flex-between-start flex-wrap py-40 px-20">
-        <div>
-            <img src="" alt="LOGO">
+<footer class="dark-bg light-txt clear pt-20">
+    <div class="container flex-between-start flex-wrap box py-20">
+        <div class="text-center">
+            <img src="{{ 'assets/images/logo.svg'|theme }}" alt="LOGO" width="76" class="white-txt font-bold font-30 opacity-7">
+            <p>
+                <b>E-Mail:</b> <span class="primary-txt">info@site.com</span>
+            </p>
+        </div>
+        <nav class="text-left">
+            <h3 class="primary-txt">SITEMAP</h3>
             {% component 'staticMenu' %}
-        </div>
-        <div>
-            <h3>CATEGORIES</h3>
-            {% component 'categories' %}
-        </div>
-        <div>
-            <h3>POLICIES</h3>
+        </nav>
+        <nav>
+            <h3 class="primary-txt">POLICIES</h3>
             {% component 'policies' %}
-        </div>
-        <div>
-            <h3>CONTACTS</h3>
-            <p>E-Mail: info@site.com</p>
-        </div>
+        </nav>
+        <nav>
+            <h3 class="primary-txt">CATEGORIES</h3>
+            {% component 'categories' %}
+        </nav>
     </div>
-    <div class="copyright text-center py-5 font-13 black-bg white-txt">
-        Copyright &copy; {{ "now"|date("Y") }} Rating Brokers
+    <div class="copyright text-center py-10 font-13 hard-bg dark-txt">
+        Copyright &copy; {{ "now"|date("Y") }} Trusted Brokers
     </div>
 </footer>

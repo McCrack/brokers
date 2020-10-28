@@ -1,0 +1,29 @@
+<form data-request="{{ __SELF__ }}::onFormSubmit" class="feedback my-30 py-40">
+    {{ form_token() }}
+
+    <div id="{{ __SELF__ }}_forms_flash"></div>
+
+    <div class="flex-between-center">
+        <input name="name"
+               type="text"
+               placeholder="Name"
+               class="rounded-5 full-width mx-5"
+               required>
+
+
+        <input name="email"
+               type="email"
+               placeholder="Email"
+               class="rounded-5 full-width mx-5"
+               required>
+
+
+        <input name="phone"
+               type="tel"
+               placeholder="Phone Number"
+               class="rounded-5 full-width mx-5"
+               required>
+
+        <button id="simpleContactSubmitButton" type="submit" class="btn primary-bg white-txt border-none cursor-pointer py-10 full-width mx-5">Submit</button>
+    </div>
+</form>

@@ -1,24 +1,50 @@
 
 [blogPosts]
 description = "Main feed"
+postsPerPage = 20
 pageNumber = "{{ :page }}"
 noPostsMessage = "Is Empty"
 sortOrder = "published_at desc"
-exceptCategories = "top-brokers"
 ==
 {% set posts = blogPosts.posts %}
 
 
+
+
 {% for post in posts %}
-<a href="/{{ post.categories[0].slug }}/{{ post.slug }}" class="snippet">
-    <div class="preview">
-        <img src="{{ (post.featured_images|first).path }}" alt="">
-    </div>
-    <p class="title font-bold font-16">{{ post.title }}</p>
-    <p class="flex-between-center">
-        <span class="post-date">{{ post.published_at|date('d M, Y') }}</span>
-        <span class="detail">READ →</span>
-    </p>
-</a>
+    <a href="/{{ post.categories[0].slug }}/{{ post.slug }}" class="snippet flex-between-center white-bg rounded-5 p-10 pr-30">
+        <div>
+            <img src="{{ (post.featured_images|first).path }}" alt="" class="preview">
+            <img src="{{ 'assets/images/warning.svg'|theme }}" alt="" class="alert">
+            <div class="title font-bold font-18 main-txt">{{ post.title }} Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet culpa cum dolorem</div>
+        </div>
+        <span class="font-16 text-center mx-10">{{ post.published_at|date('d M, Y') }}</span>
+        <span class="btn rounded-5 primary-bg white-txt uppercase font-13 font-medium py-10 px-30">details</span>
+    </a>
 {% endfor %}
 
+{% if results.hasPages %}
+<ul class="pagination">
+    <li>
+        {% if results.currentPage > 1 %}
+        <a href="{{ results.previousPageUrl }}" rel="prev">«</a>
+        {% else %}
+        <span class="disabled">«</span>
+        {% endif %}
+    </li>
+
+    {% for page in range(1, results.lastPage) %}
+    <li>
+        <a href="{{ results.url(page) }}">{{ page }}</a>
+    </li>
+    {% endfor %}
+
+    <li>
+        {% if results.hasMorePages %}
+        <a href="{{ results.nextPageUrl }}" rel="next">»</a>
+        {% else %}
+        <span class="disabled">»</span>
+        {% endif %}
+    </li>
+</ul>
+{% endif %}

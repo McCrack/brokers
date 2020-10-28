@@ -1,26 +1,93 @@
 [blogPosts]
 
 postsPerPage = 24
-pageNumber = "{{ :page }}"
+pageNumber = 1
 noPostsMessage = "Is Empty"
 sortOrder = "published_at desc"
 
 postPage = "regulated-broker"
 categoryFilter = "top-brokers"
 categoryPage = "regulated-brokers"
-exceptCategories = "brokers-to-avoid"
 
 [viewBag]
 ==
 {% set posts = blogPosts.posts %}
 
+<button type="button" class="btn absolute left font-20 rounded cursor-pointer p-0 hide">❮</button>
+<button type="button" class="btn absolute right font-20 rounded cursor-pointer p-0 hide">❯</button>
+{% for post in posts %}
+<a href="{{ post.url }}" class="snippet inline-block wrap p-20 white-bg hover-primary-bg hover-white-txt mx-10">
+    <div class="preview">
+        <img src="{{ (post.featured_images|first).path }}" alt="" class="full-width full-height contain box p-20">
+    </div>
+    <div class="caption font-bold font-18 py-20 px-5">{{ post.title }}</div>
+    <div class="excerpt font-14 px-5">{{ post.excerpt }}</div>
+</a>
+<a href="{{ post.url }}" class="snippet inline-block wrap p-20 white-bg hover-primary-bg hover-white-txt mx-10">
+    <div class="preview">
+        <img src="{{ (post.featured_images|first).path }}" alt="" class="full-width full-height contain box p-20">
+    </div>
+    <div class="caption font-bold font-18 py-20 px-5">{{ post.title }}</div>
+    <div class="excerpt font-14 px-5">{{ post.excerpt }}</div>
+</a>
+<a href="{{ post.url }}" class="snippet inline-block wrap p-20 white-bg hover-primary-bg hover-white-txt mx-10">
+    <div class="preview">
+        <img src="{{ (post.featured_images|first).path }}" alt="" class="full-width full-height contain box p-20">
+    </div>
+    <div class="caption font-bold font-18 py-20 px-5">{{ post.title }}</div>
+    <div class="excerpt font-14 px-5">{{ post.excerpt }}</div>
+</a>
+{% endfor %}
+<div class="bar absolute bottom">
+    <label class="inline-block cursor-pointer">
+        <input type="radio" name="topfeed" hidden>
+        <hr class="inline-block border-none rounded-5">
+    </label>
+</div>
+<script>
+    (feed => {
+        let timeout;
+        let btn = feed.querySelectorAll('button');
+        btn[0].onclick = event => {
+            feed.scrollLeft -= feed.offsetWidth;
+        }
+        btn[1].onclick = event => {
+            feed.scrollLeft += feed.offsetWidth;
+        }
+        feed.onscroll = event => {
+            clearTimeout(timeout);
+            timeout = setTimeout(() => {
+                scroller();
+            }, 250);
+        }
+        function scroller () {
+            if (feed.scrollLeft) {
+                btn[0].classList.toggle('hide', false);
+                btn[1].classList.toggle('hide', (feed.scrollLeft + feed.offsetWidth) >= feed.scrollWidth);
+            } else {
+                btn[0].classList.toggle('hide', true);
+                btn[1].classList.toggle('hide', (feed.scrollLeft + feed.offsetWidth) >= feed.scrollWidth);
+            }
+        }
+        var bar = feed.querySelector('.bar');
+        var point = bar.querySelector('label');
 
-<nav>
-     {% for post in posts %}
-        <a href="{{ post.url }}" class="inline-block">
-            <img src="{{ (post.featured_images|first).path }}" alt="">
-            <p class="font-bold">{{ post.title }}</p>
-            <p class="font-light">{{ post.excerpt }}</p>
-        </a>
-    {% endfor %}
-</nav>
+        function slider() {
+            bar.innerHTML = "";
+            for (let i = 0; i <= (feed.scrollWidth / feed.offsetWidth) >> 0; i++) {
+                let p = point.cloneNode(true)
+                bar.appendChild(p);
+                if (i ===  (feed.scrollLeft / feed.offsetWidth) >> 0) {
+                    p.click();
+                }
+            }
+        }
+        window.onresize = () => {
+            slider();
+        }
+
+        feed.scrollLeft = 0;
+        scroller();
+        slider();
+    })(document.currentScript.parentNode)
+</script>

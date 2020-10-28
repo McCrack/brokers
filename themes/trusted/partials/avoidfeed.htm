@@ -14,12 +14,14 @@ exceptCategories = "regulated-brokers"
 ==
 {% set posts = blogPosts.posts %}
 
-<nav>
-    {% for post in posts %}
-    <a href="{{ post.url }}" class="inline-block">
-        <img src="{{ (post.featured_images|first).path }}" alt="">
-        <p class="font-bold">{{ post.title }}</p>
-        <p class="font-light">{{ post.excerpt }}</p>
-    </a>
-    {% endfor %}
-</nav>
+
+{% for post in posts %}
+<a href="{{ post.url }}" class="top-snippet">
+    <img src="{{ 'assets/images/star.svg'|theme }}" alt="star 1">
+    <div class="silver-bg">
+        <div class="caption font-bold font-18 mb-20">{{ post.title }}</div>
+        <div>{{ post.excerpt }}</div>
+    </div>
+</a>
+{% endfor %}
+

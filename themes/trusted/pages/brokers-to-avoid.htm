@@ -2,6 +2,30 @@ title = "Brokers to Avoid"
 url = "/brokers-to-avoid"
 layout = "category"
 is_hidden = 0
+robot_index = "index"
+robot_follow = "follow"
+
+[SeoStaticPage]
+
+[SeoCmsPage]
 ==
-<h2 class="text-left font-medium"> - Brokers to Avoid ❯</h2>
-{% partial 'blacklist' %}
+<!-- Banner -->
+{% partial 'banner' image='assets/images/cover-1.jpg' %}
+
+<div class="container">
+    <nav class="breadcrumbs">
+        <ul>
+            <li><a href="/">Home</a></li>
+            <li>Brokers to avoid</li>
+        </ul>
+    </nav>
+
+    <div class="top-feed container my-30 p-20 box relative">
+        <nav class="nowrap overflow-hidden p-10 font-none ">
+            {% partial 'topfeed' %}
+        </nav>
+    </div>
+
+    <h2 class="text-left font-36 font-medium">Brokers to avoid ❯</h2>
+    {% partial 'blacklist' %}
+</div>

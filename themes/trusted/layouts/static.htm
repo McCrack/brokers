@@ -4,12 +4,18 @@ description = "Static Layout"
 useContent = 1
 default = 0
 
-
 [staticBreadcrumbs]
+
+[SeoStaticPage]
+
+[searchForm]
+resultPage = "/search"
+categoryFilter = 0
 ==
 <!DOCTYPE html>
 <html>
 <head>
+    {% component 'SeoStaticPage' %}
     {% partial 'head' %}
 </head>
 <body>
@@ -19,25 +25,35 @@ default = 0
 
     <!-- Content -->
     <main>
-        {% component 'staticBreadcrumbs' %}
-        <div class="container">
-            {% partial 'avoidfeed' %}
-            {% partial 'topfeed' %}
+        <!-- Banner -->
+        {% partial 'banner' image='assets/images/cover-1.jpg' %}
+
+        <div class="top-feed container my-30 p-20 box relative">
+            <nav class="nowrap overflow-hidden p-10 font-none ">
+                {% partial 'topfeed' %}
+            </nav>
         </div>
 
-        <div class="container max-w-860 content-container font-14">
-            {% page %}
+        <nav class="container breadcrumbs">
+            {% component 'staticBreadcrumbs' %}
+        </nav>
+
+        <div class="container">
+            <article class="content-container">
+                {% page %}
+            </article>
         </div>
     </main>
-
+    <div class="mr-30 pb-20 sticky bottom float-right">
+        <button class="btn up-btn primary-bg white-txt border-none" onclick="window.scrollTo(0,0)">❯</button>
+    </div>
     <!-- Footer -->
     {% partial 'footer' %}
 
+    {% partial 'search' %}
+
     <!-- Scripts -->
-    <!--
     <script src="{{ 'assets/vendor/jquery.js'|theme }}"></script>
-    <script src="{{ 'assets/vendor/bootstrap.js'|theme }}"></script>
-    -->
     <script src="{{ 'assets/javascript/app.js'|theme }}"></script>
     {% framework extras %}
     {% scripts %}

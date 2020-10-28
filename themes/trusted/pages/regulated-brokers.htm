@@ -3,5 +3,24 @@ url = "/regulated-brokers"
 layout = "category"
 is_hidden = 0
 ==
-<h2 class="text-left font-medium"> - Regulated Brokers ❯</h2>
-{% partial 'whitelist' %}
+
+<!-- Banner -->
+{% partial 'banner' image='assets/images/cover-1.jpg' %}
+
+<div class="container">
+    <nav class="breadcrumbs">
+        <ul>
+            <li><a href="/">Home</a></li>
+            <li>Regulated Brokers</li>
+        </ul>
+    </nav>
+
+    <div class="top-feed container my-30 p-20 box relative">
+        <nav class="nowrap overflow-hidden p-10 font-none ">
+            {% partial 'topfeed' %}
+        </nav>
+    </div>
+
+    <h2 class="text-left font-36 font-medium">Regulated Brokers ❯</h2>
+    {% partial 'whitelist' %}
+</div>

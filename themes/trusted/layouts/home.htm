@@ -10,13 +10,30 @@ pageNumber = "{{ :page }}"
 postsPerPage = 18
 noPostsMessage = "Is Empty"
 sortOrder = "published_at desc"
-categoryPage = 404
-postPage = "broker-to-avoid"
+postPage = "post"
+
+[SeoStaticPage]
+
+[searchForm]
+resultPage = "/search"
+categoryFilter = 0
+
+[genericForm]
+messages_success = "Your form has been sent successfully!"
+messages_errors = "Your form has been sent successfully!"
+inline_errors = "disabled"
+sanitize_data = "disabled"
+anonymize_ip = "disabled"
+recaptcha_theme = "light"
+recaptcha_type = "image"
+recaptcha_size = "normal"
+emails_date_format = "Y-m-d"
 ==
 <!DOCTYPE html>
 <html>
 <head>
-        {% partial 'head' %}
+    {% component 'SeoStaticPage' %}
+    {% partial 'head' %}
 </head>
 <body>
     <!-- Header -->
@@ -25,38 +42,50 @@ postPage = "broker-to-avoid"
     {% partial 'cover' %}
 
     <main>
-        <div class="container">
-            {% partial 'avoidfeed' %}
-            {% partial 'topfeed' %}
+        <div class="py-5">
+            <form class="top-feed container my-5 px-20 py-30 box relative" autocomplete="off">
+                <nav class="nowrap overflow-hidden p-10 font-none ">
+                    {% partial 'topfeed' %}
+                </nav>
+            </form>
         </div>
-
-        <div class="container">
-            <div class="feed grid">
+        <div class="container p-20 my-30 light-bg box">
+            <nav class="main-feed">
                 {% partial 'feed' %}
-            </div>
+            </nav>
         </div>
 
-        <div class="silver-bg">
-            <div class="container">
-                {% partial 'callback' %}
-            </div>
-        </div>
-
-        <div class="container content-container font-14">
-            <div class="max-w-860">{% page %}</div>
+        <div class="seo-container container box py-40 my-30">
+            {% component 'genericForm' %}
+            <article class="content-container my-30">{% page %}</article>
         </div>
     </main>
+    <div class="mr-30 pb-20 sticky bottom float-right">
+        <button class="btn up-btn primary-bg white-txt border-none" onclick="window.scrollTo(0,0)">❯</button>
+    </div>
 
     <!-- Footer -->
     {% partial 'footer' %}
 
+    {% partial 'search' %}
+
     <!-- Scripts -->
-    <!--
     <script src="{{ 'assets/vendor/jquery.js'|theme }}"></script>
-    <script src="{{ 'assets/vendor/bootstrap.js'|theme }}"></script>
-    -->
     <script src="{{ 'assets/javascript/app.js'|theme }}"></script>
+    {% framework %}
     {% framework extras %}
     {% scripts %}
+    <script>
+        (body => {
+            var logo = body.querySelector("img.logo");
+            window.onscroll = event => {
+                if ((window.pageYOffset || document.documentElement.scrollTop) > 0) {
+                    logo.style.height = "28px";
+                } else {
+                    logo.style.height = "48px";
+                }
+            }
+        })(document.currentScript.parentNode)
+    </script>
 </body>
 </html>

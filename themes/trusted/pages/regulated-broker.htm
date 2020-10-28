@@ -2,6 +2,8 @@ title = "Regulated Broker"
 url = "/regulated-brokers/:slug"
 layout = "post"
 is_hidden = 0
+robot_index = "index"
+robot_follow = "follow"
 
 [blogPost]
 slug = "{{ :slug }}"
@@ -42,7 +44,29 @@ order_email = 11
 theme = "social_flat_rounded_rects_svg"
 
 [commentsPost]
+
+[SeoBlogPost]
+post = "post"
 ==
+{% component 'SeoBlogPost' data=post %}
+
+<!-- Banner -->
+{% partial 'banner' image='assets/images/cover-1.jpg' %}
+
+<div class="top-feed container my-30 p-20 box relative">
+    <nav class="nowrap overflow-hidden p-10 font-none ">
+        {% partial 'topfeed' %}
+    </nav>
+</div>
+
+<nav class="container breadcrumbs">
+    <ul>
+        <li><a href="/">Home</a></li>
+        <li><a href="/regulated-brokers">Regulated Brokers</a></li>
+        <li>{{ post.title }}</li>
+    </ul>
+</nav>
+
 <div class="container">
     <div class="wrapper">
         {% partial 'content' %}
