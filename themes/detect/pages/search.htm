@@ -1,0 +1,26 @@
+title = "Search"
+url = "/search/:page?"
+layout = "default"
+is_hidden = 0
+robot_index = "index"
+robot_follow = "follow"
+
+[searchForm]
+resultPage = "/search"
+categoryFilter = 0
+==
+<div class="container">
+    <div class="search">
+        <p class="uppercase font-30 white-txt font-light my-0">Search</p>
+        {% component 'searchForm' %}
+    </div>
+    <div class="search-result py-40">
+        <h2 class="success-txt">Search Result</h2>
+        <div class="white-txt">{% component 'searchResult' %}</div>
+    </div>
+
+    <div class="container p-20">
+        {% partial 'blacklist' %}
+        {% partial 'whitelist' %}
+    </div>
+</div>

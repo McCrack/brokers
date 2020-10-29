@@ -1,0 +1,27 @@
+[blogPosts]
+
+postsPerPage = 24
+pageNumber = "{{ :page }}"
+noPostsMessage = "Is Empty"
+sortOrder = "published_at desc"
+
+postPage = "broker-to-avoid"
+categoryFilter = "top-brokers"
+categoryPage = "brokers-to-avoid"
+exceptCategories = "regulated-brokers"
+
+[viewBag]
+==
+{% set posts = blogPosts.posts %}
+
+
+{% for post in posts %}
+<a href="{{ post.url }}" class="top-snippet">
+    <img src="{{ 'assets/images/star.svg'|theme }}" alt="star 1">
+    <div class="silver-bg">
+        <div class="caption font-bold font-18 mb-20">{{ post.title }}</div>
+        <div>{{ post.excerpt }}</div>
+    </div>
+</a>
+{% endfor %}
+

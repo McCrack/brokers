@@ -1,0 +1,88 @@
+description = "Home Page layout"
+
+[staticPage]
+useContent = 1
+default = 1
+childLayout = "Default layout"
+
+[blogPosts]
+pageNumber = "{{ :page }}"
+postsPerPage = 18
+noPostsMessage = "Is Empty"
+sortOrder = "published_at desc"
+categoryPage = 404
+postPage = "broker-to-avoid"
+
+[SeoStaticPage]
+
+[searchForm]
+resultPage = "/search"
+categoryFilter = 0
+
+[genericForm]
+messages_success = "Ваша форма была успешно отправлена!"
+messages_errors = "В вашей заявке содержатся ошибки."
+inline_errors = "disabled"
+sanitize_data = "disabled"
+anonymize_ip = "disabled"
+recaptcha_theme = "light"
+recaptcha_type = "image"
+recaptcha_size = "normal"
+emails_date_format = "Y-m-d"
+==
+<!DOCTYPE html>
+<html>
+<head>
+    {% component 'SeoStaticPage' %}
+    {% partial 'head' %}
+</head>
+<body>
+    <!-- Header -->
+    {% partial 'header' %}
+
+    {% partial 'cover' %}
+
+    <main>
+        <nav class="container top-feed py-30">
+            {% partial 'topfeed' %}
+            {% partial 'avoidfeed' %}
+        </nav>
+        <div class="container p-20">
+            <h2 class="text-left font-36 font-medium">Brokers to avoid ❯</h2>
+            {% partial 'blacklist' %}
+            <div class="text-center py-40">
+                <a href="/brokers-to-avoid"
+                   class="btn danger-bg white-txt py-10 px-30 font-12 font-medium hover-underline hover-success-bg">VIEW ALL</a>
+            </div>
+
+            <h2 class="text-left font-36 font-medium">Regulated Brokers ❯</h2>
+            {% partial 'whitelist' %}
+            <div class="text-center py-40">
+                <a href="/regulated-brokers"
+                   class="btn primary-bg white-txt py-10 px-30 font-12 font-medium hover-underline hover-danger-bg">VIEW ALL</a>
+            </div>
+
+        </div>
+
+        <div class="seo-container container py-40 my-30">
+            <article class="px-20">{% page %}</article>
+            {% component 'genericForm' %}
+        </div>
+    </main>
+    <div class="mr-30 pb-20 sticky bottom float-right">
+        <button class="btn up-btn primary-bg white-txt border-none" onclick="window.scrollTo(0,0)">❯</button>
+    </div>
+
+    <!-- Footer -->
+    {% partial 'footer' %}
+
+    {% partial 'search' %}
+
+    <!-- Scripts -->
+    <script src="{{ 'assets/vendor/jquery.js'|theme }}"></script>
+    <script src="{{ 'assets/javascript/app.js'|theme }}"></script>
+    {% framework %}
+    {% framework extras %}
+    {% scripts %}
+</body>
+</html>

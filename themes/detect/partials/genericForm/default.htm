@@ -1,0 +1,43 @@
+<form data-request="{{ __SELF__ }}::onFormSubmit" class="feedback pink-bg shadow">
+    {{ form_token() }}
+
+    <div id="{{ __SELF__ }}_forms_flash"></div>
+
+    <label class="block mb-10">
+        <span>Name</span>
+        <input name="name"
+               type="text"
+               class="full-width"
+               required>
+    </label>
+
+    <label class="block mb-10">
+        <span>E-Mail</span>
+        <input name="email"
+               type="email"
+               class="full-width"
+               required>
+    </label>
+
+    <label class="block mb-10">
+        <span>Phone Number</span>
+        <input name="phone"
+               type="tel"
+               class="full-width"
+               required>
+    </label>
+
+    <div class="mb-10">
+        <label for="feedback-message">Message</label>
+        <textarea id="feedback-message"
+                  name="message"
+                  class="full-width resize-none"
+                  rows="10"></textarea>
+    </div>
+
+    <div class="form-group">
+        {% partial '@recaptcha' %}
+    </div>
+
+    <button id="simpleContactSubmitButton" type="submit" class="btn danger-bg white-txt border-none full-width cursor-pointer py-10">Submit</button>
+</form>

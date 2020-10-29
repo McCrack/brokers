@@ -36,6 +36,22 @@ footer {
     max-width: 860px;
     box-sizing: border-box;
 }
+
+@media (max-width: 784px) {
+
+}
+@media (min-width: 785px) {
+    #comment-form {
+        .fields {
+            display: flex;
+            align-items: center;
+            div:nth-child(2) {
+                margin: 5px;
+            }
+        }
+    }
+}
+
 header {
     nav {
         .main-menu {
@@ -59,7 +75,30 @@ footer {
     }
 }
 @media (max-width: 644px) {
-
+    .hamburger + ul {
+        left: 0;
+        right: 0;
+        top: 52px;
+        position: fixed;
+        overflow: hidden;
+        background-color: @dark-bg;
+        transition: max-height .4s ease-in;
+        li {
+            padding: 5px 20px;
+        }
+    }
+    .main-menu {
+        ul {
+            li {
+                color: @soft-primary;
+                line-height: 50px;
+                box-sizing: border-box;
+                &:not(:last-child) {
+                    border-bottom: 1px solid #555555;
+                }
+            }
+        }
+    }
 }
 @media (min-width: 645px) {
     header {

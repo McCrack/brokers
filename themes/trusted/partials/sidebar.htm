@@ -2,7 +2,7 @@ description = "Sidebar"
 
 [blogPosts]
 description = "Main feed"
-postsPerPage = 1
+postsPerPage = 10
 pageNumber = "{{ :page }}"
 noPostsMessage = "Is Empty"
 sortOrder = "published_at desc"
@@ -19,9 +19,8 @@ sortOrder = "published_at desc"
             <img src="{{ (post.featured_images|first).path }}" alt="">
         </div>
         <p class="title font-bold font-16">{{ post.title }}</p>
-        <p class="flex-between-center primary-txt">
+        <p class="flex-between-center soft-txt">
             <span class="post-date">{{ post.published_at|date('d M, Y') }}</span>
-            <span class="detail">READ →</span>
         </p>
     </a>
     {% endfor %}

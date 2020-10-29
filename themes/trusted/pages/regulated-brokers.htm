@@ -2,10 +2,24 @@ title = "Regulated Brokers"
 url = "/regulated-brokers"
 layout = "category"
 is_hidden = 0
+robot_index = "index"
+robot_follow = "follow"
+
+[blogPosts]
+description = "Main feed"
+postsPerPage = 18
+pageNumber = "{{ :page }}"
+noPostsMessage = "Is Empty"
+sortOrder = "published_at desc"
+categoryFilter = "regulated-brokers"
+
+[SeoStaticPage]
+
+[SeoCmsPage]
 ==
 
 <!-- Banner -->
-{% partial 'banner' image='assets/images/cover-1.jpg' %}
+{% partial 'banner' %}
 
 <div class="container">
     <nav class="breadcrumbs">
@@ -15,12 +29,14 @@ is_hidden = 0
         </ul>
     </nav>
 
-    <div class="top-feed container my-30 p-20 box relative">
-        <nav class="nowrap overflow-hidden p-10 font-none ">
+    <div class="top-feed container my-30 p-20 pb-30 box relative">
+        <nav class="nowrap overflow-hidden p-10 font-none">
             {% partial 'topfeed' %}
         </nav>
     </div>
-
-    <h2 class="text-left font-36 font-medium">Regulated Brokers ❯</h2>
-    {% partial 'whitelist' %}
+    <hr class="soft-warning-bg border-none" style="height: 1px">
+    <h1 class="text-center font-36 pt-30">Regulated Brokers</h1>
+    <nav class="main-feed">
+        {% partial 'feed' %}
+    </nav>
 </div>

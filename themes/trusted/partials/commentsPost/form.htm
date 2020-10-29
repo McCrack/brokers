@@ -6,9 +6,9 @@
                       title="Cancel reply">×</a>
             </small>
         </p>
-        <form>
+        <form class="px-10">
             <div id="comment_flash_message"></div>
-
+            <input name="post_id" type="hidden" value="{{__SELF__.post_id}}">
             <!-- Content Field -->
             <div class="my-5">
                 <textarea id="comment-text"
@@ -18,9 +18,13 @@
                           rows="10"></textarea>
             </div>
 
-            {% if(user == false) %}
+            {% if (__SELF__.settings.recaptcha_enabled) %}
+            <div class="g-recaptcha" data-sitekey="{{ __SELF__.settings.site_key }}"></div>
+            {% endif %}
+            <div class="fields">
+                {% if(user == false) %}
                 <!-- Name Field -->
-                <div class="my-5">
+                <div class="my-5 full-width">
                     <input name="author"
                            placeholder="Name"
                            class="full-width"
@@ -28,23 +32,19 @@
                 </div>
 
                 <!-- Email Field -->
-                <div class="my-5">
+                <div class="my-5 full-width">
                     <input name="email"
                            type="email"
                            placeholder="E-Mail"
                            class="full-width">
                 </div>
-            {% endif %}
-
-            <input name="post_id" type="hidden" value="{{__SELF__.post_id}}">
-
-            {% if (__SELF__.settings.recaptcha_enabled) %}
-            <div class="g-recaptcha" data-sitekey="{{ __SELF__.settings.site_key }}"></div>
-            {% endif %}
-
-            <!-- Submit Field -->
-            <div class="my-5 text-right">
-                <button type="submit" class="btn cursor-pointer danger-bg hover-success-bg white-txt border-none px-10 py-5" onclick="Comment.saveButton(event)">Post Comment</button>
+                {% endif %}
+                <!-- Submit Field -->
+                <div class="my-5 full-width">
+                    <button type="submit"
+                            class="btn full-width cursor-pointer dark-bg white-txt border-none px-10 py-10 font-14"
+                            onclick="Comment.saveButton(event)">Post Comment</button>
+                </div>
             </div>
         </form>
     </div>

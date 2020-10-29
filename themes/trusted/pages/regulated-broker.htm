@@ -50,14 +50,11 @@ post = "post"
 ==
 {% component 'SeoBlogPost' data=post %}
 
-<!-- Banner -->
-{% partial 'banner' image='assets/images/cover-1.jpg' %}
-
-<div class="top-feed container my-30 p-20 box relative">
+<form class="top-feed container my-30 p-20 box relative">
     <nav class="nowrap overflow-hidden p-10 font-none ">
         {% partial 'topfeed' %}
     </nav>
-</div>
+</form>
 
 <nav class="container breadcrumbs">
     <ul>

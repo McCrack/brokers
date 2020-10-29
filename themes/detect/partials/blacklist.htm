@@ -1,0 +1,29 @@
+[blogPosts]
+description = "Brokers to Avoid"
+
+[blogPosts]
+postsPerPage = 18
+pageNumber = "{{ :page }}"
+noPostsMessage = "Is Empty"
+sortOrder = "published_at desc"
+
+postPage = "broker-to-avoid"
+categoryPage = "brokers-to-avoid"
+categoryFilter = "brokers-to-avoid"
+==
+{% set posts = blogPosts.posts %}
+
+<div class="feed black-list grid">
+    {% for post in posts %}
+    <a href="{{ post.url }}" class="snippet flex-between-stretch flex-column">
+        <div class="preview">
+            <img src="{{ (post.featured_images|first).path }}" alt="">
+        </div>
+        <p class="post-title font-bold font-16">{{ post.title }}</p>
+        <div class="flex-between-center font-regular font-13">
+            <span>{{ post.published_at|date('d M, Y') }}</span>
+            <span class="link">READ ❯</span>
+        </div>
+    </a>
+    {% endfor %}
+</div>

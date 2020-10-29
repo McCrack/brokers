@@ -34,5 +34,17 @@ categoryFilter = 0
     <script src="{{ 'assets/javascript/app.js'|theme }}"></script>
     {% framework extras %}
     {% scripts %}
+    <script>
+        (body => {
+            var logo = body.querySelector("img.logo");
+            window.onscroll = event => {
+                if ((window.pageYOffset || document.documentElement.scrollTop) > 0) {
+                    logo.style.height = "28px";
+                } else {
+                    logo.style.height = "48px";
+                }
+            }
+        })(document.currentScript.parentNode)
+    </script>
 </body>
 </html>

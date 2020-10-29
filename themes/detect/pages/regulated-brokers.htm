@@ -1,0 +1,25 @@
+title = "Regulated Brokers"
+url = "/regulated-brokers"
+layout = "category"
+is_hidden = 0
+==
+
+<!-- Banner -->
+{% partial 'banner' image='assets/images/cover-1.jpg' %}
+
+<div class="container">
+    <nav class="breadcrumbs">
+        <ul>
+            <li><a href="/">Home</a></li>
+            <li>Regulated Brokers</li>
+        </ul>
+    </nav>
+
+    <nav class=" top-feed py-30">
+        {% partial 'avoidfeed' %}
+        {% partial 'topfeed' %}
+    </nav>
+
+    <h2 class="text-left font-36 font-medium">Regulated Brokers ❯</h2>
+    {% partial 'whitelist' %}
+</div>

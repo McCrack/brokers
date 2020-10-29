@@ -5,12 +5,13 @@ useContent = 1
 default = 1
 childLayout = "Default layout"
 
+
 [blogPosts]
-pageNumber = "{{ :page }}"
+description = "Main feed"
 postsPerPage = 18
+pageNumber = "{{ :page }}"
 noPostsMessage = "Is Empty"
 sortOrder = "published_at desc"
-postPage = "post"
 
 [SeoStaticPage]
 
@@ -72,7 +73,7 @@ emails_date_format = "Y-m-d"
     <!-- Scripts -->
     <script src="{{ 'assets/vendor/jquery.js'|theme }}"></script>
     <script src="{{ 'assets/javascript/app.js'|theme }}"></script>
-    {% framework %}
+
     {% framework extras %}
     {% scripts %}
     <script>

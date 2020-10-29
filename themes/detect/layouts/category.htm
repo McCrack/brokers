@@ -1,0 +1,41 @@
+description = "Category"
+
+[staticPage]
+useContent = 1
+default = 0
+
+[SeoStaticPage]
+
+[searchForm]
+resultPage = "/search"
+categoryFilter = 0
+==
+<!DOCTYPE html>
+<html>
+<head>
+    {% partial 'head' %}
+</head>
+<body>
+
+    <!-- Header -->
+    {% partial 'header' %}
+
+    <!-- Content -->
+    <main>
+        {% page %}
+    </main>
+    <div class="mr-30 pb-20 sticky bottom float-right">
+        <button class="btn up-btn primary-bg white-txt border-none" onclick="window.scrollTo(0,0)">❯</button>
+    </div>
+    <!-- Footer -->
+    {% partial 'footer' %}
+
+    {% partial 'search' %}
+
+    <!-- Scripts -->
+    <script src="{{ 'assets/vendor/jquery.js'|theme }}"></script>
+    <script src="{{ 'assets/javascript/app.js'|theme }}"></script>
+    {% framework extras %}
+    {% scripts %}
+</body>
+</html>

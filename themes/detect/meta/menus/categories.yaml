@@ -1,0 +1,20 @@
+items:
+    -
+        title: 'Brokers to Avoid'
+        type: url
+        url: /brokers-to-avoid
+        code: ''
+        viewBag:
+            isHidden: '0'
+            cssClass: ''
+            isExternal: '0'
+    -
+        title: 'Regulated Brokers'
+        type: url
+        url: /regulated-brokers
+        code: ''
+        viewBag:
+            isHidden: '0'
+            cssClass: ''
+            isExternal: '0'
+name: categories
